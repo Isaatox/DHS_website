@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Rediriger les requêtes sans l'extension .php vers l'URL sans .php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+)/?$ $1.php [L]
+
+    # Rediriger les requêtes sans .php à la version avec .php si elle existe
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteCond %{REQUEST_URI} !\.php$
+    RewriteRule ^(.*[^/]+)$ /$1.php [L]
+</IfModule>
+
+ErrorDocument 404 https://join-hls.ovh/
