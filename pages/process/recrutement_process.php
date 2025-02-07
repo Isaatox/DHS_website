@@ -1,6 +1,7 @@
 <?php
 
 include_once '../../conf.php';
+
 date_default_timezone_set('Europe/Paris');
 
 $nom = $_POST['nom'];
@@ -96,7 +97,7 @@ if ($ipconnue['ip'] === $ip && $dateToday->format('Y-m-d') === $ipconnuecreate) 
 
                 $dateDISCORD = new DateTime();
                 $date = $dateDISCORD->format('Y-m-d H:i:s');
-                $url = "https://discord.com/api/webhooks/1117126401032724541/NuXV4_-pjHSbp6lgfwxTlXRwAHbgT7rt4j5Cx85oxRIlTvn-dZ3UXrG87u92XqFGrS-2";
+                $url = $webhookURL;
 
                 $thumbnailImg = $carriere === "usss"
                     ? "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Logo_of_the_United_States_Secret_Service.svg/1200px-Logo_of_the_United_States_Secret_Service.svg.png"
